@@ -77,4 +77,10 @@ var banner = function () {
         }
         points[index-1].classList.add('now');
     }
+
+    var startX = 0;
+    var distanceX =0;
+    var isMove = 0;
+
+
 }
