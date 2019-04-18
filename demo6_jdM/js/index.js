@@ -1,6 +1,7 @@
 window.onload = function () {
     search();
     banner();
+    downTime();
 }
 var search = function () {
     var searchBox = document.querySelector('.jd_search_box');
@@ -81,6 +82,60 @@ var banner = function () {
     var startX = 0;
     var distanceX =0;
     var isMove = 0;
-
-
+    imageBox.addEventListener('touchstart',function (e) {
+        clearInterval(timer);
+        startX = e.touches[0].clientX;
+    });
+    imageBox.addEventListener('touchmove', function (e) {
+        distanceX = startX - e.touches[0].clientX;
+        var translateX = -index * width - distanceX;
+        removeTransition();
+        setTranslateX(translateX);
+        isMove = 1;
+    });
+    imageBox.addEventListener('touchend',function (e) {
+        if (isMove) {
+            if (Math.abs(distanceX) < width / 3) {
+                addTransition();
+                setTranslateX(-index * width);
+            } else {
+                if (distanceX > 0) {
+                    index++;
+                } else {
+                    index--;
+                }
+                addTransition();
+                setTranslateX(-index * width);
+            }
+        }
+            startX = 0;
+            distanceX = 0;
+            isMove = 0;
+            clearInterval(timer);
+            timer = setInterval(function () {
+                index++;
+                addTransition();
+                setTranslateX(-index * width);
+            }, 1000);
+    });
 }
+var downTime = function () {
+    var time = 4 * 60 * 60;
+    var spans = document.querySelectorAll('.time span');
+    timer = setInterval(function () {
+        var hh = time / 60 / 60;
+        var mm = time % 3600 / 60;
+        var ss = time % 60;
+        time--;
+
+        spans[0].innerHTML = Math.floor(hh / 10);
+        spans[1].innerHTML = Math.floor(hh % 10);
+        spans[3].innerHTML = Math.floor(mm / 10);
+        spans[4].innerHTML = Math.floor(mm % 10);
+        spans[6].innerHTML = Math.floor(ss / 10);
+        spans[7].innerHTML = Math.floor(ss % 10);
+        if (time < 0) {
+            clearInterval(time);
+        }
+    }, 1000);
+};
