@@ -5040,9 +5040,7 @@ $(document).ready(function() {
     init_autosize();
     init_autocomplete();
 
-    init_lineChart();
-    init_barChart();
-    clickTocheck();
+    init_lineChart2();
 });
 
 
