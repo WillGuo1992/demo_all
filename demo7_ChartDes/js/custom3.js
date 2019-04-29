@@ -5040,9 +5040,7 @@ $(document).ready(function() {
     init_autosize();
     init_autocomplete();
 
-    init_lineChart();
-    init_barChart();
-    clickTocheck();
+    init_lineChart2();
 });
 
 
@@ -5067,7 +5065,7 @@ var init_lineChart = function () {
         series: [{
             name: '销量',
             type: 'line',
-            data: [2138, 2932, 2451, 2123, 2776, 2412, 2871, 2175, 2598, 2932, 2851]
+            data: [12, 11, 11, 0, 0, 0, 0, 0, 12, 13, 16]
         }]
     };
 
@@ -5096,7 +5094,7 @@ var init_barChart = function () {
         series: [{
             name: '销量',
             type: 'bar',
-            data: [2138, 2932, 2451, 2123, 2776, 2412, 2871, 2175, 2598, 2932, 2851]
+            data: [12, 11, 11, 0, 0, 0, 0, 0, 12, 13, 16]
         }]
     };
 // 使用刚指定的配置项和数据显示图表。

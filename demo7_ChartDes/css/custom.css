@@ -4292,6 +4292,8 @@ h6{
     padding-bottom: 20px;
     box-shadow: 2px 2px 8px #888888;
     height: 350px;
-
+    padding-top: 20px;
 }
-
+.page3_pointnum{
+    padding-left: 100px;
+}
