@@ -4297,3 +4297,15 @@ h6{
 .page3_pointnum{
     padding-left: 100px;
 }
+
+.rightMain table th,td{
+    text-align: center;
+}
+.rightMain table thead tr th{
+    text-align: center;
+}
+.rightMain nav{
+    margin-top: -30px;
+    align-content: center;
+    margin-left: 350px;
+}
