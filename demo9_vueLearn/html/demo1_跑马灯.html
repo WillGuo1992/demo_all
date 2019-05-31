@@ -1,0 +1,44 @@
+<!<!doctype html>
+<html lang="zh" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../js/vue-2.4.0.js"></script>
+</head>
+<body>
+<div id="App">
+    <input type="button" value="跑" v-on:click="run">
+    <input type="button" value="停" @click="stop">
+    <h4>{{msg}}</h4>
+</div>
+</body>
+<script>
+    var vm = new Vue({
+        el: '#App',
+        data: {
+            msg : '猥琐发育，稳住别浪！~~~',
+            intervalId: null
+        },
+        methods:{
+            run () {
+                if (this.intervalId != null) {
+                    return;
+                }
+                _this = this;
+                this.intervalId = setInterval(function () {
+                    var first = _this.msg.substring(0, 1);
+                    var last = _this.msg.substring(1);
+                    _this.msg = last + first;
+                },400)
+            },
+            stop() {
+                clearInterval(this.intervalId);
+                this.intervalId = null;
+            }
+        }
+    });
+</script>
+</html>
